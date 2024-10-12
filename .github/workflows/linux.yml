@@ -15,3 +15,13 @@ jobs:
 
       - name: Run linux build
         run: ./linux-build.sh
+
+      - name: Create tar ball
+        run: |
+          tar -czf "$HOME/${{ matrix.output }}" $HOME/rubies/ruby-3.2
+
+      - name: Upload articact
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ matrix.output }}
+          path: $HOME/${{ matrix.output }}

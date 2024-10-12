@@ -14,10 +14,24 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { name: MacOS-intel, os: macos-13 }
-          - { name: MacOS-M1, os: macos-14 }
+          - {
+              name: MacOS-intel,
+              os: macos-13,
+              output: "ruby-3.2-macos-intel.tar.gz",
+            }
+          - { name: MacOS-M1, os: macos-14, output: "ruby-3.2-macos-m1.tar.gz" }
     steps:
       - uses: actions/checkout@v3
 
       - name: Run MacOS build
         run: ./macos-build.sh
+
+      - name: Create tar ball
+        run: |
+          tar -czf "$HOME/${{ matrix.output }}" $HOME/rubies/ruby-3.2
+
+      - name: Upload articact
+        uses: actions/upload-artifact@master
+        with:
+          name: ${{ matrix.output }}
+          path: $HOME/${{ matrix.output }}
