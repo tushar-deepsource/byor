@@ -17,9 +17,13 @@ jobs:
           - {
               name: MacOS-intel,
               os: macos-13,
-              output: "ruby-3.2-macos-intel.tar.gz",
+              output: "ruby-3.2-macos-x86.tar.gz",
             }
-          - { name: MacOS-M1, os: macos-14, output: "ruby-3.2-macos-m1.tar.gz" }
+          - {
+              name: MacOS-M1,
+              os: macos-14,
+              output: "ruby-3.2-macos-arm64.tar.gz",
+            }
     steps:
       - uses: actions/checkout@v3
 

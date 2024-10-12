@@ -18,10 +18,10 @@ jobs:
 
       - name: Create tar ball
         run: |
-          tar -czf "$HOME/${{ matrix.output }}" --directory=$HOME/rubies/ruby-3.2 .
+          tar -czf "$HOME/ruby-3.2-linux-x86.tar.gz" --directory=$HOME/rubies/ruby-3.2 .
 
       - name: Upload articact
         uses: actions/upload-artifact@master
         with:
-          name: ${{ matrix.output }}
-          path: $HOME/${{ matrix.output }}
+          name: ruby-3.2-linux-x86.tar.gz
+          path: $HOME/ruby-3.2-linux-x86.tar.gz
