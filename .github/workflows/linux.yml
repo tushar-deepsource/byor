@@ -24,4 +24,4 @@ jobs:
         uses: actions/upload-artifact@master
         with:
           name: ruby-3.2-linux-x86.tar.gz
-          path: $HOME/ruby-3.2-linux-x86.tar.gz
+          path: ~/ruby-3.2-linux-x86.tar.gz
