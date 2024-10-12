@@ -1,0 +1,23 @@
+name: Build for MacOS
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build-macos:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { name: MacOS-intel, os: macos-13 }
+          - { name: MacOS-M1, os: macos-14 }
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run MacOS build
+        run: ./macos-build.sh
