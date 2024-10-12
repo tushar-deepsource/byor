@@ -12,4 +12,4 @@ Find and intel or M1 mac machine and run `./macos-build.sh`.
 
 ## Dockerfiles
 
-Dockerfiles for mac and linux are present in the `./docker` folder.
+Dockerfiles for ubuntu and alpine Linux builds are present in the `./docker` folder.
