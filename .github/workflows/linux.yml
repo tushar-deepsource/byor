@@ -18,7 +18,7 @@ jobs:
 
       - name: Create tar ball
         run: |
-          tar -czf "$HOME/${{ matrix.output }}" $HOME/rubies/ruby-3.2
+          tar -czf "$HOME/${{ matrix.output }}" --directory=$HOME/rubies/ruby-3.2 .
 
       - name: Upload articact
         uses: actions/upload-artifact@master
